@@ -1,0 +1,187 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid" ng-controller="PackageController">
+
+    <div class="col-lg-12">
+        <h2>Package Sense</h2>
+        <div class="card">
+            <h3 class="card-header">Featured</h3>
+            <div class="card-block">
+                <div class="row" style="margin-bottom: 15px;" name="I/O">
+
+                    <div class="form-group">
+                        <div class="col-md-7">
+                            <label for="basic-url">Search</label>
+                            <input type="text" class="form-control" ng-model="search[searchBy]" style="max-width: none;" placeholder="Search for Resident">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="basic-url">Search By:</label>
+                            <select ng-model="searchBy" class="form-control">
+                                <option value="$">No Filter</option>
+                                <option value="FirstName">First Name</option>
+                                <option value="LastName">Last Name</option>
+                                <option value="RoomNumber">Room Number</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row" name="table-row">
+                    <div class="col-lg-12">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>First Name</th>
+                                        <th>Last Name</th>
+                                        <th>Room Number</th>
+                                        <th>SELECT</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="b in ResidentList | filter:search">
+                                    
+                                        <td>{{b.Id}}</td>
+                                        <td>{{b.FirstName}}</td>
+                                        <td>{{b.LastName}}</td>
+                                        <td>{{b.RoomNumber}}</td>
+                                        <td><div class="col-md-6">
+                                                <a href="" class="btn btn-primary btn-block" style="max-width:none;">View Resident</a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <button id="uxBTNAddPackage" style="max-width:none;" class="btn btn-info btn-block" data-toggle="modal" ng-click="LoadResident(b)" data-target="#AddPackage">Add a Package</button>
+                                            </div>
+                                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" id="AddPackage" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-content">
+
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title">Add New Package</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                           
+                                                              <div class="table-responsive">
+                                                                  <table class="table">
+                                                                      <tbody>
+                                                                          <tr>
+                                                                              <th>Recipient Information</th>
+                                                                              <td>
+                                                                                <label>First Name</label>
+                                                                                <input class="form-control" type="text" value="{{FName}}" />
+                                                                              </td>
+                                                                              <td>
+                                                                                  <label>Last Name</label>
+                                                                                  <input class="form-control" type="text" value="{{LName}}" />
+                                                                              </td>
+
+                                                                          </tr>
+                                                                          <tr>
+                                                                              <th>Package Information</th>
+                                                                              <td colspan="2">
+                                                                                  <div class="col-lg-12">
+                                                                                      <div class="row">
+                                                                                          <label>Storage Location</label>
+                                                                                          <input style="max-width: none;" class="form-control" type="text" />
+                                                                                      </div>
+                                                                                      <div style="margin-top:10px;" class="row">
+                                                                                          <label>Package Description</label>
+                                                                                          <textarea style="max-width: none;" rows="3" class="form-control"></textarea>
+                                                                                      </div>
+
+
+                                                                                  </div>
+                                                                                  
+                                                                              </td>
+                                                                             
+                                                                          </tr>
+                                                                      </tbody>
+                                                                  
+                                                                  </table>
+
+
+
+
+                                                              </div>
+
+
+                                                           
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                               </table>  
+                                    
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Modals-->
+  
+    <script>
+        $(document).on("click", "#uxBTNAddPackage", function () {
+            var Id = $(this).data('id');
+            $(".modal-body #data").val(Id);
+            });
+
+
+
+    </script>
+</div>
+
+
+            
+         
+
+
+
+
+   
+       
+
+  
+   
+
+
+
