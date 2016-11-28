@@ -16,4 +16,17 @@
 
         return response;
     }
+
+    this.addPackage = function (resident)
+    {
+        var resonse = $http({
+            method: "post",
+            url: "Home/AddPackage",
+            params:{
+                resident: JSON.stringify(resident)
+            }
+
+        });
+    }
+
 });

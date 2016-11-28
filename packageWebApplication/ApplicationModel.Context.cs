@@ -26,5 +26,7 @@ namespace packageWebApplication
         }
     
         public virtual DbSet<ResidentTable> ResidentTables { get; set; }
+        public virtual DbSet<PackageList> PackageLists { get; set; }
+        public virtual DbSet<PackageTable> PackageTables { get; set; }
     }
 }

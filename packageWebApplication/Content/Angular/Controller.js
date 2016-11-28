@@ -97,12 +97,11 @@
 
     }
 
-    $scope.onSubmit = function (num)
+    $scope.onSubmit = function ()
     {
-        if (num == 1)
-        {
-            AddResident(PackageForm);
-        }
+        
+            $scope.AddPackage($scope.PackageForm);
+        
 
 
 
@@ -112,13 +111,29 @@
 
     $scope.AddPackage = function(PackageForms)
     {
+        $scope.PackageAddStatus;
         var Resident = {
-            FullName : PackageForm.FName +" "+PackageForm.LName,
-
-
-
+            FullName: PackageForms.FName + " " + PackageForms.LName,
+            Location: PackageForms.Location,
+            Description: PackageForms.Description,
 
         }
+
+        PackageService.addPackage(Resident).then(function (emp) {
+
+
+            if (emp != true)
+            {
+                $scope.PackageAddStatus = false;
+
+            } else {
+                $scope.PackageAddStatus = true;
+            }
+
+
+        })
+
+
     }
 
 

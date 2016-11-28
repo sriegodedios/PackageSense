@@ -1,8 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
+
 
 namespace packageWebApplication.Controllers
 {
@@ -55,13 +58,24 @@ namespace packageWebApplication.Controllers
             return false;
         }
 
-        public bool AddPackage(ResidentTable resident)
+        public bool AddPackage(string resident)
         {
             if (resident != null)
             {
                 using (ApplicationDatabaseEntities dataContext = new ApplicationDatabaseEntities())
                 {
-                    dataContext.ResidentTables.Add(resident);
+                    dynamic data = JObject.Parse(resident);
+
+                    PackageList t = new PackageList();
+
+                    t.FullName = data.Fullname;
+                    t.Location = data.Location;
+                    t.Description = data.Description;
+                    t.DateIn = Convert.ToInt32(DateTime.UtcNow);
+                    t.Status = "Queued";
+
+                    dataContext.PackageLists.Add(t);
+
                     dataContext.SaveChanges();
                     return true;
 

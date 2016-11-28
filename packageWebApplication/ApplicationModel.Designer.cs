@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\shane_000\Documents\CIS 300\Krishane Riegodedios CIS 300 Fall 2016\packageWebApplication\packageWebApplication\ApplicationModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\krishane\PackageSense\packageWebApplication\ApplicationModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

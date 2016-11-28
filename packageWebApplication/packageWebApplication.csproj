@@ -237,6 +237,12 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="PackageList.cs">
+      <DependentUpon>ApplicationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PackageTable.cs">
+      <DependentUpon>ApplicationModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResidentTable.cs">
       <DependentUpon>ApplicationModel.tt</DependentUpon>
