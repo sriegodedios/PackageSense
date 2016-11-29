@@ -21,5 +21,6 @@ namespace packageWebApplication
         public int DateIn { get; set; }
         public Nullable<int> DateOut { get; set; }
         public string Status { get; set; }
+        public Nullable<int> StudentID { get; set; }
     }
 }

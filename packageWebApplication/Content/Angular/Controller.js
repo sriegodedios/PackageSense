@@ -5,6 +5,7 @@
         $scope.reverse = !$scope.reverse;
     }
 
+    $scope.PackageAddStatus = false;
     //display records
     getTableData();
     function getTableData()
@@ -51,7 +52,7 @@
         $scope.PackageForm.FName = r.FirstName;
         $scope.PackageForm.LName = r.LastName;
         $scope.PackageForm.Description = "";
-        $scope.PackageForm.Location = " "
+        $scope.PackageForm.Location =  ""
 
         
     }
@@ -111,7 +112,7 @@
 
     $scope.AddPackage = function(PackageForms)
     {
-        $scope.PackageAddStatus;
+        
         var Resident = {
             FullName: PackageForms.FName + " " + PackageForms.LName,
             Location: PackageForms.Location,
@@ -119,22 +120,28 @@
 
         }
 
-        PackageService.addPackage(Resident).then(function (emp) {
+        PackageService.addPackage(Resident).then( function (emp) {
 
 
-            if (emp != true)
-            {
+
+            if (emp.data == 0) {
                 $scope.PackageAddStatus = false;
+                console.log("False");
 
-            } else {
+            } else{
                 $scope.PackageAddStatus = true;
+                console.log("True");
             }
 
 
-        })
+
+
+        });
 
 
     }
+
+    
 
 
 });
